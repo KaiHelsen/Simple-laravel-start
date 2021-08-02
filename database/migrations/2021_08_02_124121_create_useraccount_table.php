@@ -13,7 +13,7 @@ class CreateUserAccountTable extends Migration
      */
     public function up()
     {
-        Schema::create('userAccount', function (Blueprint $table) {
+        Schema::create('user_account', function (Blueprint $table) {
             $table->id();
             $table->string('userName');
             $table->string('email');

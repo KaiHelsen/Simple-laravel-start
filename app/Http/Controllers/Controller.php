@@ -18,21 +18,13 @@ class Controller extends BaseController
         //DONE: 2) store something in redis cache, and extract from cache
         //DONE: 3) create mySQL migration of basic user model (name, email, etc.)
 
-        $this->TestCaching();
+        $this->TestCaching('test_key');
         return view('welcome',);
     }
 
-    private function TestCaching(): void
+    public function TestCaching(string $key): void
     {
-        $value = Cache::get('testKey');
-        if ($value === null)
-        {
-            echo("nothing in the cache as of yet. Rectifying...");
-            Cache::put('testKey', 'SomeResponse', 60);
-        }
-        else
-        {
-            echo $value;
-        }
+        $value = Cache::remember($key, 60, function(){
+            return 'SomeResponse';});
     }
 }
