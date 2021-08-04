@@ -19,6 +19,7 @@ class Controller extends BaseController
         //DONE: 3) create mySQL migration of basic user model (name, email, etc.)
 
         $this->TestCaching('test_key');
+        echo("test");
         return view('welcome',);
     }
 
